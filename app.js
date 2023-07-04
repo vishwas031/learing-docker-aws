@@ -1,13 +1,11 @@
 require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
-// const ejs = require("ejs");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-// const https = require("https");
-// const fs = require("fs");
+const port = 3000;
 const app = express();
 
 //For Removing Cache
@@ -17,8 +15,7 @@ const setNoCache = (req, res, next) => {
 };
 
 //Connect to DB
-// mongoose.connect("mongodb+srv://Vishwas:" + process.env.PASSWORD + "@1stmernproject.yo1ii.mongodb.net/?retryWrites=true&w=majority")
-mongoose.connect("mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.9.1")
+mongoose.connect("mongodb://172.17.0.2:27017/users")
 .catch((err)=>{
     console.log(err);
 })
@@ -149,8 +146,8 @@ app.post("/delete", (req, res)=>{
 });
 
 //Port
-console.log(`server is up and running on ${process.env.PORT}`)
-app.listen(process.env.PORT);
+console.log(`server is up and running on 3000`)
+app.listen(port);
 
 // HTTPS
 // const options = {
