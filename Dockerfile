@@ -1,5 +1,8 @@
 FROM node:18-alpine
 
+ENV ADMIN_NAME=admin \
+    PASSWORD=secret
+
 WORKDIR /app
 
 COPY package.json package-lock.json ./

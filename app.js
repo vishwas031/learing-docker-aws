@@ -15,7 +15,7 @@ const setNoCache = (req, res, next) => {
 };
 
 //Connect to DB
-mongoose.connect("mongodb://172.17.0.2:27017/users")
+mongoose.connect(`mongodb://${process.env.ADMIN_NAME}:${process.env.PASSWORD}@mongo`)
 .catch((err)=>{
     console.log(err);
 })

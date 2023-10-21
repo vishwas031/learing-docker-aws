@@ -1,0 +1,14 @@
+version: '1'
+services:
+  my-app:
+    image: 723310089602.dkr.ecr.eu-north-1.amazonaws.com/my-app:1.1
+# no need to mention ports as we have already used the expose command in the Dockerfile.
+    # ports:
+    #   - 3000:3000
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=secret
